@@ -7,7 +7,7 @@ buttons.forEach(function(buttons){
 });
 */
 
-//a way to detect button push
+//a way to detect button click
 var numberOfDrumButtons = document.querySelectorAll(".drum").length;
 for (var i = 0 ; i < numberOfDrumButtons; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click", function(){
@@ -15,7 +15,20 @@ for (var i = 0 ; i < numberOfDrumButtons; i++) {
         // what to do when click detected
         var buttonInnerHTML = this.innerHTML;
         
-        switch (buttonInnerHTML) {
+        playsound(buttonInnerHTML);
+});
+}
+
+//button pressed
+document.addEventListener("keydown", function(event){
+
+        playsound(event.key);
+})
+
+//function to play sound
+function playsound(key){
+
+            switch (key) {
             case "w":
                 var tom1 = new Audio("sounds/tom-1.mp3");
                 tom1.play();
@@ -42,7 +55,7 @@ for (var i = 0 ; i < numberOfDrumButtons; i++) {
             break;
 
             case "k":
-                var kickBass= new Audio("sounds/kick-bass.mp3");
+                var kickBass = new Audio("sounds/kick-bass.mp3");
                 kickBass.play();
             break;
 
@@ -51,7 +64,6 @@ for (var i = 0 ; i < numberOfDrumButtons; i++) {
                 crash.play();
             break;
 
-            default: console.log(buttonInnerHTML);
-    };
-});
+            default: console.log(key);
+        }
 }
