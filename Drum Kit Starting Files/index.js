@@ -1,11 +1,3 @@
-// Detecting Button Press 
-/*var buttons = document.querySelectorAll(".drum");
-buttons.forEach(function(buttons){
-    buttons.addEventListener("click", function(){
-        alert("i was clicked")
-    });
-});
-*/
 
 //a way to detect button click
 var numberOfDrumButtons = document.querySelectorAll(".drum").length;
@@ -16,18 +8,18 @@ for (var i = 0 ; i < numberOfDrumButtons; i++) {
         var buttonInnerHTML = this.innerHTML;
         
         playsound(buttonInnerHTML);
+        buttonAnimation(buttonInnerHTML);
 });
 }
 
 //button pressed
 document.addEventListener("keydown", function(event){
-
         playsound(event.key);
+        buttonAnimation(event.key);
 })
 
 //function to play sound
 function playsound(key){
-
             switch (key) {
             case "w":
                 var tom1 = new Audio("sounds/tom-1.mp3");
@@ -66,4 +58,12 @@ function playsound(key){
 
             default: console.log(key);
         }
+}
+
+function buttonAnimation(currentKey){
+    var activeButton = document.querySelector("."+ currentKey);
+    activeButton.classList.add("pressed");
+    setTimeout(function() {
+        activeButton.classList.remove("pressed");
+    }, 100);
 }
