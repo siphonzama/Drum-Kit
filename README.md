@@ -1,0 +1,1 @@
+This project was created as a learning exercise to practice working with JavaScript DOM manipulation. It turned out to be a great foundation for building confidence on the frontend. Tools like MDN Docs, YouTube, ChatGPT, and Discord played a big role in helping me understand concepts and overcome problems while developing this drum kit website.
